@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('city_temperatures', function (Blueprint $table) {
             $table->id();
-            $table->string('city', 64);
-            $table->unsignedInteger("temperatures");
+            $table->string('city', 128);
+            $table->string("temperatures", 128);
             $table->timestamps();
         });
     }
