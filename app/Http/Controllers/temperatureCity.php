@@ -61,4 +61,17 @@ class temperatureCity extends Controller
     return redirect()->back();
 
     }
+
+    public function delete(Request $request, $id)
+    {
+        $singleTemperature = cityTemperatures::where(['id' => $id])->first();
+
+        if($singleTemperature == null)
+        {
+            die("Nepostojeci id");
+        }
+        $singleTemperature->delete();
+
+        return redirect()->back();
+    }
 }

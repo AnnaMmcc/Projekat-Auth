@@ -23,6 +23,9 @@ Route::middleware('auth')->prefix('admin')->group(function (){
   Route::get("/edit/temperatures/{id}", [\App\Http\Controllers\temperatureCity::class, 'edit'])->name('edit');
 
 Route::post("/save/edit/temperatures/{id}", [\App\Http\Controllers\temperatureCity::class, 'saveEdit'])->name('saveEdit');
+
+Route::get("/delete/temperatures/{id}", [\App\Http\Controllers\temperatureCity::class, 'delete'])->name('delete');
+
 });
 
 Route::get('/dashboard', function () {

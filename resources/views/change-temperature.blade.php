@@ -23,7 +23,7 @@
             <tr><td>{{$temperature->city}} </td>
                 <td>{{$temperature->temperatures}} C</td>
                 <td><a href="{{route("edit", ['id' => $temperature->id])}}" class="btn btn-primary">Edit</a>
-                    <a class="btn btn-danger">Delete</a></td>
+                    <a href="{{route("delete", ['id' => $temperature->id])}}" class="btn btn-danger">Delete</a></td>
             </tr>
     @endforeach
 </div>
