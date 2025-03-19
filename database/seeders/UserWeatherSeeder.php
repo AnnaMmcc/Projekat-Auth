@@ -17,6 +17,13 @@ class UserWeatherSeeder extends Seeder
         if($city == null)
         {
             $this->command->getOutput()->error("Niste uneli ime grada!");
+            return;
+        }
+        $city = cityTemperatures::where(['city' => $city])->first();
+        if($city instanceof cityTemperatures)
+        {
+            $this->command->getOutput()->error("Vec postoji ime grada");
+            return;
         }
 
         $temperature = $this->command->getOutput()->ask("Unesite temperaturu");
@@ -24,6 +31,7 @@ class UserWeatherSeeder extends Seeder
         if($temperature == null)
         {
             $this->command->getOutput()->error("Niste uneli temperatutu!");
+            return;
         }
 
         cityTemperatures::create([
