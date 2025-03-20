@@ -13,18 +13,13 @@ class UserWeatherSeeder extends Seeder
      */
     public function run(): void
     {
-        $city = $this->command->getOutput()->ask("Unesite ime grada");
-        if($city == null)
+        $city_id = $this->command->getOutput()->ask("Unesite id grada");
+        if($city_id == null)
         {
-            $this->command->getOutput()->error("Niste uneli ime grada!");
+            $this->command->getOutput()->error("Niste uneli id grada!");
             return;
         }
-        $city = cityTemperatures::where(['city' => $city])->first();
-        if($city instanceof cityTemperatures)
-        {
-            $this->command->getOutput()->error("Vec postoji ime grada");
-            return;
-        }
+        $city_id = cityTemperatures::where(['city_id' => $city_id])->first();
 
         $temperature = $this->command->getOutput()->ask("Unesite temperaturu");
 
@@ -35,10 +30,10 @@ class UserWeatherSeeder extends Seeder
         }
 
         cityTemperatures::create([
-            'city' =>   $city,
+            'city_id' =>   $city_id,
             'temperatures' => $temperature
         ]);
 
-        $this->command->getOutput()->info("Uspesno ste uneli grad $city sa temperaturom od $temperature stepeni");
+        $this->command->getOutput()->info("Uspesno ste uneli id $city_id sa temperaturom od $temperature stepeni");
     }
 }
