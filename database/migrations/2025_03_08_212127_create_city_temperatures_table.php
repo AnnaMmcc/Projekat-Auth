@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('city_temperatures', function (Blueprint $table) {
             $table->id();
             $table->string('city_id', 128);
-            $table->string("temperatures", 128);
+            $table->float("temperatures", 128);
             $table->timestamps();
 
             $table->foreign("city_id")->references("id")->on("cities");
