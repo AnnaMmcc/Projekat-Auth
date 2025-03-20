@@ -12,7 +12,7 @@
     <table class="table table-striped">
         <thead>
         <tr class="col-10">
-            <th>City</th>
+            <th><a>City</a></th>
             <th>Temperature</th>
         </tr>
         </thead>
