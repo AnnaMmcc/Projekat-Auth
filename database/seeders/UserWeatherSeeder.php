@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Cities;
 use App\Models\cityTemperatures;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserWeatherSeeder extends Seeder
