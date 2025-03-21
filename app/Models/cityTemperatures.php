@@ -8,7 +8,7 @@ class cityTemperatures extends Model
 {
     protected $table = 'city_temperatures';
     protected $fillable = [
-        'city',
+        'city_id',
         'temperatures',
     ];
 }
