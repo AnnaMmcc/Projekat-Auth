@@ -11,4 +11,9 @@ class cityTemperatures extends Model
         'city_id',
         'temperatures',
     ];
+
+    public function city()
+    {
+        return $this->hasOne(Cities::class, 'id', 'city_id');
+    }
 }
