@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cities;
+use App\Models\Forecast;
+use GuzzleHttp\Psr7\Request;
+
 class ForecastController extends Controller
 {
-    public function index($city)
+    public function index(Cities $city)
     {
-        $forecast = [
-            "beograd" => [22, 23, 24, 25, 23],
-            "sarajevo" => [20, 23, 23, 22, 12]
-        ];
-        $city = strtolower($city);
-        if (!array_key_exists($city, $forecast)) {
-            die("Ovaj grad ne postoji");
-        }
+       $prognoza = Forecast::where(['city_id' => $city->id])->get();
+
+        return view('/forecast', compact('prognoza'));
     }
 }

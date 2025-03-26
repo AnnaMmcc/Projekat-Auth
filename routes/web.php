@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get("/city-temperature", [\App\Http\Controllers\temperatureCity::class, 'cityTemperatures' ]);
 
-Route::get("/forecast/{city}", [\App\Http\Controllers\ForecastController::class, 'index']);
+Route::get("/forecast/{city:name}", [\App\Http\Controllers\ForecastController::class, 'index']);
 
 Route::middleware('auth')->prefix('admin')->group(function (){
 
