@@ -13,4 +13,9 @@ class ForecastController extends Controller
 
         return view('/forecast', compact('city'));
     }
+
+    public function forecastUpdate (Cities $city)
+    {
+       return view('admin/forecasts', compact('city'));
+    }
 }

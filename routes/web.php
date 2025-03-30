@@ -17,6 +17,14 @@ Route::middleware('auth')->prefix('admin')->group(function (){
        return view('add-new-temperature');
    });
 
+   Route::get("/forecasts", [\App\Http\Controllers\ForecastController::class, 'forecastUpdate']);
+
+   Route::post("/forecasts/create", [\App\Http\Controllers\AdminForecastController::class, 'saveCreate'])->name("save.forecast.create");
+
+   Route::view("/weather", "admin/weather_index");
+
+   Route::post("/update", [\App\Http\Controllers\AdminWeatherController::class, 'update'])->name("update");
+
   Route::post("/add-in-database", [\App\Http\Controllers\temperatureCity::class, 'addInDatabase']);
 
   Route::get("/change-temperature", [\App\Http\Controllers\temperatureCity::class, 'changeTemperatures']);

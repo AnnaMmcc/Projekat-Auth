@@ -73,5 +73,4 @@ class temperatureCity extends Controller
         return redirect()->back();
     }
 
-
 }

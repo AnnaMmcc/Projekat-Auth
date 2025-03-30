@@ -20,10 +20,21 @@ class ForecastSeeder extends Seeder
 
             for ($i = 0; $i < 5; $i++)
             {
+                $weatherType = Forecast::WEATHERS[rand(0 , 2)];
+
+                $probability = null;
+
+                if($weatherType == "rainy" || $weatherType == "snowy")
+                {
+                    $probability = rand(1, 100);
+                }
+
                 Forecast::create([
                     'city_id' => $city->id,
                     'temperature' => rand(15, 30),
-                    'date' => Carbon::now()->addDays(rand(1,30))
+                    'date' => Carbon::now()->addDays(rand(1,30)),
+                    'weather_type' => $weatherType,
+                    'probability' => $probability
                 ]);
             }
 
