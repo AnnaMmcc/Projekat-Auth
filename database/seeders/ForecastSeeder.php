@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\ForcastHelper;
 use App\Models\Cities;
 use App\Models\Forecast;
 use Carbon\Carbon;
@@ -20,11 +21,11 @@ class ForecastSeeder extends Seeder
 
             for ($i = 0; $i < 5; $i++)
             {
-                $weatherType = Forecast::WEATHERS[rand(0 , 2)];
+                $weather_type = Forecast::WEATHERS[rand(0 , 3)];
 
                 $probability = null;
 
-                if($weatherType == "rainy" || $weatherType == "snowy")
+                if($weather_type == "rainy" || $weather_type == "snowy" || $weather_type == "cloudy")
                 {
                     $probability = rand(1, 100);
                 }
@@ -33,7 +34,7 @@ class ForecastSeeder extends Seeder
                     'city_id' => $city->id,
                     'temperature' => rand(15, 30),
                     'date' => Carbon::now()->addDays(rand(1,30)),
-                    'weather_type' => $weatherType,
+                    'weather_type' => $weather_type,
                     'probability' => $probability
                 ]);
             }

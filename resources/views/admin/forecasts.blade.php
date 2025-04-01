@@ -47,9 +47,13 @@
 
             @foreach($city->forecast as $forecastt)
 
-                @php $boja = \App\Http\ForcastHelper::getColorByTemperature($forecastt->temperature) @endphp
+                @php $boja = \App\Http\ForcastHelper::getColorByTemperature($forecastt->temperature);
+                 $ikonica = \App\Http\ForcastHelper::getIconByWeatherType($forecastt->weather_type)
+                @endphp
 
-                <li class="list-group-item">{{ $forecastt->date }} - <span style="color: {{ $boja }}"> {{ $forecastt->temperature }} </span> C</li>
+                <li class="list-group-item">{{ $forecastt->date }} -
+                    <i class="fa-solid {{ $ikonica }}"></i>
+                    <span style="color: {{ $boja }}"> {{ $forecastt->temperature }} </span> C</li>
 
 
     @endforeach
@@ -60,8 +64,5 @@
 </div>
 @endsection
 
-<i class="fa-solid fa-sun"></i>
-<i class="fa-solid fa-cloud-rain"></i>
-<i class="fa-solid fa-snowflake"></i>
 
 

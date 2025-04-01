@@ -24,6 +24,6 @@ class AdminForecastController extends Controller
             "date" => $request->get("date")
         ]);
 
-        return redirect()->back();
+        return redirect("/admin/forecasts");
     }
 }
