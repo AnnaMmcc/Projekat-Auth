@@ -29,10 +29,26 @@ class ForecastSeeder extends Seeder
                 {
                     $probability = rand(1, 100);
                 }
+                $temperature = null;
+                switch ($weather_type)
+                {
+                        case "sunny":
+                          $temperature = rand(-50, 50);
+                           break;
+                        case "snowy":
+                            $temperature = rand(-50,1);
+                            break;
+                        case "cloudy":
+                            $temperature = rand(-50, 15);
+                            break;
+                        case "rainy":
+                            $temperature = rand(-10,50);
+                             break;
+                }
 
                 Forecast::create([
                     'city_id' => $city->id,
-                    'temperature' => rand(15, 30),
+                    'temperature' => $temperature,
                     'date' => Carbon::now()->addDays(rand(1,30)),
                     'weather_type' => $weather_type,
                     'probability' => $probability

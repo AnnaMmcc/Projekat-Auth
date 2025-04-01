@@ -45,25 +45,5 @@ class ForcastHelper
         }
         return $icon;
     }
-    public static function getWeatherTypeByHeightsTemp($weather_type)
-    {
 
-        if($weather_type == "rainy")
-        {
-            $weatherType = rand(-10, 50);
-        }
-        else if($weather_type == "sunny")
-        {
-            $weatherType = rand();
-        }
-        else if($weather_type == "snowy")
-        {
-            $weatherType = rand(-30,1);
-        }
-        else if($weather_type == "cloudy")
-        {
-          $weatherType = rand(-10,15);
-        }
-        return $weatherType;
-    }
 }
