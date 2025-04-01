@@ -19,6 +19,9 @@ class ForecastSeeder extends Seeder
 
         foreach ($cities as $city) {
 
+            $firstTemperature = null;
+
+
             for ($i = 0; $i < 5; $i++)
             {
                 $weather_type = Forecast::WEATHERS[rand(0 , 3)];
@@ -30,11 +33,20 @@ class ForecastSeeder extends Seeder
                     $probability = rand(1, 100);
                 }
                 $temperature = null;
-                switch ($weather_type)
+
+                if($firstTemperature != null)
                 {
+                    $minTemperature = $firstTemperature-5;
+                    $maxTemperature = $firstTemperature+5;
+                    $temperature = rand($minTemperature, $maxTemperature);
+                }
+                else
+                {
+                    switch ($weather_type)
+                    {
                         case "sunny":
-                          $temperature = rand(-50, 50);
-                           break;
+                            $temperature = rand(-50, 50);
+                            break;
                         case "snowy":
                             $temperature = rand(-50,1);
                             break;
@@ -43,7 +55,8 @@ class ForecastSeeder extends Seeder
                             break;
                         case "rainy":
                             $temperature = rand(-10,50);
-                             break;
+                            break;
+                    }
                 }
 
                 Forecast::create([
@@ -53,6 +66,8 @@ class ForecastSeeder extends Seeder
                     'weather_type' => $weather_type,
                     'probability' => $probability
                 ]);
+
+                $firstTemperature = $temperature;
             }
 
         }
