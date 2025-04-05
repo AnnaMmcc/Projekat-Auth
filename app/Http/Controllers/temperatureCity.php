@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cities;
 use App\Models\cityTemperatures;
 use Illuminate\Http\Request;
 
@@ -72,5 +73,6 @@ class temperatureCity extends Controller
 
         return redirect()->back();
     }
+
 
 }

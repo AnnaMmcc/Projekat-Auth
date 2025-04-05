@@ -7,6 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get("/search", [\App\Http\Controllers\ForecastController::class, 'searchCity'])->name("search.city");
+
+Route::get("/search/{city:name}", [\App\Http\Controllers\ForecastController::class, 'searchPermalink'])->name('search.permalink');
+
 Route::get("/city-temperature", [\App\Http\Controllers\temperatureCity::class, 'cityTemperatures' ]);
 
 Route::get("/forecast/{city:name}", [\App\Http\Controllers\ForecastController::class, 'index']);

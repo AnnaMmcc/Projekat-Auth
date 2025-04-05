@@ -25,6 +25,8 @@ class ForcastHelper
         return $boja;
 
     }
+
+
     public static function getIconByWeatherType($weather_type)
     {
         if($weather_type == "rainy")

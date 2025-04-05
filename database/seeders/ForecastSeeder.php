@@ -22,7 +22,7 @@ class ForecastSeeder extends Seeder
             $firstTemperature = null;
 
 
-            for ($i = 0; $i < 5; $i++)
+            for ($i = 0; $i < 30; $i++)
             {
                 $weather_type = Forecast::WEATHERS[rand(0 , 3)];
 
@@ -62,7 +62,7 @@ class ForecastSeeder extends Seeder
                 Forecast::create([
                     'city_id' => $city->id,
                     'temperature' => $temperature,
-                    'date' => Carbon::now()->addDays(rand(1,30)),
+                    'date' => Carbon::now()->addDays($i),
                     'weather_type' => $weather_type,
                     'probability' => $probability
                 ]);
