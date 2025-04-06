@@ -31,9 +31,8 @@ class ForecastController extends Controller
 
         return view("search_results", compact("cities"));
     }
-    public function searchPermalink(Request $request, $city)
+    public function searchPermalink(Request $request,Cities $city)
     {
-       $city = Cities::all();
 
         return view("search_permalink", compact('city'));
     }

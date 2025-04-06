@@ -2,9 +2,9 @@
 
 @section("content")
 
-@foreach($city as $weather)
+@foreach($city->forecast as $forecasttt)
 
-    <p>{{ $weather->forecast->date }}</p>
+    <p>{{$forecasttt->date  }} : {{ $forecasttt->temperature }}</p>
 
 @endforeach
 
