@@ -22,7 +22,7 @@ class ForecastController extends Controller
     {
         $cityName = $request->get("city");
 
-        $cities = Cities::where("name", "LIKE", "%$cityName%")->get();
+        $cities = Cities::with('toDayForecast')->where("name", "LIKE", "%$cityName%")->get();
 
         if(count($cities) == 0)
       {

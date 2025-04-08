@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class temperatureCity extends Controller
 {
-    public function cityTemperatures()
+    public function cityTemperatures(Request $request)
     {
         $allTemperatures = cityTemperatures::all();
+
         return view('city-temperatures', compact('allTemperatures'));
     }
 
