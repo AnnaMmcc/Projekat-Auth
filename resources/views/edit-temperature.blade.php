@@ -15,7 +15,7 @@
     <div class="container col-4">
     <div class="mb-3">
         <label for="city" class="form-label">City:</label>
-        <input type="text" name="city" class="form-control" id="city" value="{{$singleTemperature->city}}">
+        <input type="text" name="city" class="form-control" id="city" value="{{$singleTemperature->city->name}}">
     </div>
 
     <div class="mb-3">

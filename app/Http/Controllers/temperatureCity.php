@@ -30,7 +30,7 @@ class temperatureCity extends Controller
 
     public function changeTemperatures()
     {
-        $allTemperatures = cityTemperatures::all();
+        $allTemperatures = cityTemperatures::with('city')->get();
         return view('/change-temperature', compact('allTemperatures'));
     }
 

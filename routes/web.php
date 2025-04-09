@@ -16,7 +16,7 @@ Route::get("/city-temperature", [\App\Http\Controllers\temperatureCity::class, '
 
 Route::get("/forecast/{city:name}", [\App\Http\Controllers\ForecastController::class, 'index']);
 
-
+Route::get("/user-cities/favourite/{city}", [\App\Http\Controllers\UserCities::class, "favourite"])->name("favourite.city");
 
 
 
