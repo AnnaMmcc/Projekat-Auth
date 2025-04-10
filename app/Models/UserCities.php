@@ -13,4 +13,9 @@ class UserCities extends Model
         "city_id", "user_id"
     ];
 
+    public function city()
+    {
+        return $this->hasOne(Cities::class, 'id', 'city_id');
+    }
+
 }

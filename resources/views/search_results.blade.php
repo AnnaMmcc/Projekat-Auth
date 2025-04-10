@@ -11,7 +11,7 @@
     @foreach($cities as $city)
     @php $icon = \App\Http\ForcastHelper::getIconByWeatherType($city->toDayForecast->weather_type) @endphp
         @if(in_array($city->id, $userFavourites))
-                <a href="{{ route("favourite.city", ['city' => $city->id]) }}" style="color: indianred" class="btn btn-outline-primary"><i class="fa-solid fa-heart"></i></a>
+                <a href="{{ route("unfavourite.city", ['city' => $city->id]) }}" style="color: indianred" class="btn btn-outline-primary"><i class="fa-solid fa-heart"></i></a>
             @else
                 <a href="{{ route("favourite.city", ['city' => $city->id]) }}" style="color: indianred" class="btn btn-outline-primary"><i class="fa-regular fa-heart"></i></a>
             @endif

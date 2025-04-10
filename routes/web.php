@@ -4,7 +4,18 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $userFavourites = [];
+    $user = \Illuminate\Support\Facades\Auth::user();
+
+    if($userFavourites !== null)
+    {
+        $userFavourites = \App\Models\UserCities::where([
+            'user_id' => $user->id
+        ])->get();
+    }
+
+  return view('welcome', compact('userFavourites'));
 });
 
 
@@ -18,7 +29,7 @@ Route::get("/forecast/{city:name}", [\App\Http\Controllers\ForecastController::c
 
 Route::get("/user-cities/favourite/{city}", [\App\Http\Controllers\UserCities::class, "favourite"])->name("favourite.city");
 
-
+Route::get("/user-cities/unfavourite/{city}", [\App\Http\Controllers\UserCities::class, 'unfavourite'])->name("unfavourite.city");
 
 Route::middleware('auth')->prefix('admin')->group(function (){
 
