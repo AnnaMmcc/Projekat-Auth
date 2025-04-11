@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::get("/search", [\App\Http\Controllers\ForecastController::class, 'searchCity'])->name("search.city");
 
 Route::get("/search/{city:name}", [\App\Http\Controllers\ForecastController::class, 'searchPermalink'])->name('search.permalink');
